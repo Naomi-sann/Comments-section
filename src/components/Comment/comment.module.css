@@ -1,8 +1,17 @@
+.comments_container,
 #comment {
-  width: clamp(220px, 90%, 600px);
+  width: clamp(180px, 90%, 650px);
+}
+
+.comments_container #comment {
+  width: 100%;
+}
+
+#comment,
+#reply {
   min-height: 125px;
   height: fit-content;
-  margin: 10px;
+  margin: 10px 0;
   padding: 25px;
   border-radius: 10px;
   display: flex;
@@ -11,6 +20,27 @@
   color: var(--gray);
   background: #fff;
   box-shadow: 0 1.5px 2px rgba(175, 175, 175, 0.1);
+}
+
+#reply {
+  width: clamp(220px, 90%, 555px);
+}
+
+.replies_section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+.replies_section::before {
+  content: "";
+  width: 2px;
+  height: 92.5%;
+  border-radius: 10px;
+  background: rgba(150, 150, 150, 0.25);
+  position: absolute;
+  top: 10px;
+  left: 47.5px;
 }
 
 .comment_header {
@@ -29,14 +59,17 @@
 .profile img {
   height: 37.5px;
 }
+.profile h2 {
+  color: #313131;
+  font-weight: 600;
+}
 
 .profile h2,
-.reply span {
+.comment_modify_button span {
   font-size: 15px;
 }
 
-.reply {
-  color: var(--purple);
+.comment_modify_button {
   display: flex;
   transition: background-color 150ms;
   justify-content: space-between;
@@ -47,19 +80,40 @@
   cursor: pointer;
   user-select: none;
 }
-.reply:hover {
-  background-color: var(--light-gray);
-}
-.reply span {
+.comment_modify_button span {
   font-weight: 600;
   margin-left: 7.5px;
 }
-.reply svg {
+.comment_modify_button svg {
   font-size: 13px;
+}
+
+.reply,
+.edit {
+  color: var(--purple);
+}
+.reply:hover,
+.edit:hover {
+  background-color: var(--light-gray);
+}
+
+.edit_section {
+  display: flex;
+  gap: 5px;
+}
+
+.delete {
+  color: rgba(247, 22, 22, 0.852);
+}
+.delete:hover {
+  background-color: rgba(247, 22, 22, 0.15);
 }
 
 .comment_body {
   margin-left: 25px;
+}
+.comment_body p {
+  overflow-wrap: anywhere;
 }
 
 .score_counter {
@@ -92,4 +146,37 @@
 
 .score_counter button:hover {
   color: var(--purple);
+}
+
+@media (max-width: 725px) {
+  #comment,
+  #reply {
+    flex-direction: column;
+    padding: 15px;
+  }
+  #comment .comment_body,
+  #reply .comment_body {
+    margin: 0 0 15px;
+  }
+  #comment .comment_body,
+  #reply .comment_body,
+  .score_counter button:last-child {
+    order: -1;
+  }
+
+  .score_counter {
+    width: 95px;
+    height: 40px;
+    flex-direction: row;
+  }
+  .score_counter button{
+    width: 35px;
+    height: 80%;
+  }
+  .score_counter button:first-child {
+    order: 1;
+  }
+  .score_counter h3{
+    font-size: 15px;
+  }
 }

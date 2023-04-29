@@ -6,7 +6,7 @@ import type { Datas, Comment } from '../data/data';
 const initialState: Datas = datas;
 
 const commentsSlice = createSlice({
-    name: "comments",
+    name: "datas",
     initialState,
     reducers: {
         getComment(state, action: PayloadAction<number>) {
@@ -14,6 +14,7 @@ const commentsSlice = createSlice({
             console.log(state, " : state");
         },
         setComment(state, action: PayloadAction<Comment[]>) {
+
             state.comments = action.payload;
         },
         deleteComment(state, { payload }: PayloadAction<number>) {

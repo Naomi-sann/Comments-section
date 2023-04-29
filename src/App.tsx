@@ -7,7 +7,7 @@ function MainContainer(): JSX.Element {
   const comments: Comment[] = useFetchComments();
 
   const renderComments = () =>
-    comments?.map((comment: Comment) => (
+    comments.map((comment: Comment) => (
       <CommentComponent key={comment.id} commentObj={comment} />
     )) ?? <></>;
 

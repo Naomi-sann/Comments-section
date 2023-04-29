@@ -13,8 +13,10 @@ interface CommentBody {
   score: number;
   user: User;
 }
-interface CommentReply extends CommentBody {
+
+export interface CommentReply extends CommentBody {
   replyingTo: string;
+  replies?: CommentReply[];
 }
 
 export interface Comment extends CommentBody {
@@ -26,7 +28,7 @@ export interface Datas {
   comments: Comment[]
 }
 
-const datas = {
+const datas: Datas = {
   currentUser: {
     image: {
       png: "./images/avatars/image-juliusomo.png",
@@ -53,7 +55,7 @@ const datas = {
     {
       id: 2,
       content:
-        "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+        "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks! wadcwacdwacdawdcaw dcwadcwacdwadcwadc awdcwadcawcdawdcawdcwadcawc dawdawdcdddw adwcwadcawdcwa awdcawwadcwadwadcawda awdcawcdawcdwacdwacdawcdawcwacdawcdawygdcyawcdbyawcyuawcgdyu gawydgcyuawgdcbyawdgcyawgbcdyuawbgydugawbydgyawbgcdygawydgyawdcgnwaycdugyawgcdyagwdcyawngdy aydwcnwaygdnyuawgndygycwagdawawcddcawcdawcdawcdawcdawcdawcdawcdwa wadcawcdwacawdcwa awdcawcdwa awdcwadcawdc awdcawdcwacd wadcawdcwa",
       createdAt: "2 weeks ago",
       score: 5,
       user: {
@@ -95,6 +97,21 @@ const datas = {
           },
         },
       ],
+    },
+    {
+      id: 5,
+      content:
+        "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
+      createdAt: "3 month ago",
+      score: 2,
+      user: {
+        image: {
+          png: "./images/avatars/image-juliusomo.png",
+          webp: "./images/avatars/image-juliusomo.webp",
+        },
+        username: "juliusomo",
+      },
+      replies: [],
     },
   ],
 };

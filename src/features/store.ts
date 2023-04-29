@@ -3,7 +3,7 @@ import commentsSlice from "./CommentsSlice";
 
 const store = configureStore({
     reducer: {
-        comments: commentsSlice,
+        datas: commentsSlice,
     }
 });
 
