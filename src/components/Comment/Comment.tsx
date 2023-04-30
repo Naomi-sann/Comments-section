@@ -51,7 +51,7 @@ function CommentComponent({
   const commentElement = (
     <div id={type === "comment" ? styles.comment : styles.reply}>
       <div>
-        <ScoreCounter score={score} />
+        <ScoreCounter scoreProp={score} username={user.username} />
       </div>
       <div className={styles.comment_body}>
         <header className={styles.comment_header}>

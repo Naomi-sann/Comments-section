@@ -4,45 +4,112 @@ import { HiPlus, HiOutlineMinus } from "react-icons/hi";
 
 const getInitialState = (score: number) => ({
   score,
+  username: "",
+  scoreType: null,
 });
 
 interface ScoreState {
   score: number;
+  username: string;
+  scoreType: "increase" | "decrease" | null;
 }
+
+type Method = "increase" | "decrease";
 
 interface ScoreActions {
   type: "increment" | "decrement";
-  payload?: number;
+  payload: {
+    username: string;
+    scoreType: Method | null;
+    amount?: number;
+  };
 }
 
 const scoreReducer = (state: ScoreState, action: ScoreActions) => {
+  const counter = (
+    method: Method,
+    initialAmount: number,
+    countAmount?: number
+  ) =>
+    method === "increase"
+      ? !countAmount
+        ? initialAmount + 1
+        : initialAmount + countAmount
+      : !countAmount
+      ? initialAmount - 1
+      : initialAmount - countAmount;
+
+  const getScoreState = (method: Method) => {
+    if (!state.username) {
+      return {
+        score: counter(method, state.score, action.payload.amount),
+        username: action.payload.username,
+        scoreType: action.payload.scoreType,
+      };
+    }
+
+    return {
+      score: counter(
+        state.scoreType === "increase" ? "decrease" : "increase",
+        state.score,
+        action.payload.amount
+      ),
+      username: "",
+      scoreType: null,
+    };
+  };
+
   switch (action.type) {
     case "increment": {
-      return { score: state.score + 1 };
+      const increaseState = getScoreState("increase");
+
+      return increaseState;
     }
     case "decrement": {
-      return {
-        score: state.score - 1,
-      };
+      const increaseState = getScoreState("decrease");
+
+      return increaseState;
     }
     default:
       return state;
   }
 };
 
-const ScoreCounter = (props: { score: number }) => {
+const ScoreCounter = ({
+  scoreProp,
+  username,
+}: {
+  scoreProp: number;
+  username: string;
+}) => {
   const [score, dispatch] = useReducer(
     scoreReducer,
-    getInitialState(props.score)
+    getInitialState(scoreProp)
   );
+
+  console.log(score);
 
   return (
     <div className={styles.score_counter}>
-      <button onClick={() => dispatch({ type: "increment" })}>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "increment",
+            payload: { username, scoreType: "increase" },
+          })
+        }
+      >
         <HiPlus />
       </button>
       <h3>{score.score}</h3>
-      <button onClick={() => dispatch({ type: "decrement" })}>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "decrement",
+            payload: { username, scoreType: "decrease" },
+          })
+        }
+      >
         <HiOutlineMinus />
       </button>
     </div>
