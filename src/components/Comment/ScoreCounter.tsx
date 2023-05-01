@@ -98,6 +98,10 @@ const ScoreCounter = ({
             payload: { username, scoreType: "increase" },
           })
         }
+        style={{
+          background:
+            score.scoreType === "increase" ? "rgba(150,150,150,.2)" : "",
+        }}
       >
         <HiPlus />
       </button>
@@ -109,6 +113,10 @@ const ScoreCounter = ({
             payload: { username, scoreType: "decrease" },
           })
         }
+        style={{
+          background:
+            score.scoreType === "decrease" ? "rgba(150,150,150,.2)" : "",
+        }}
       >
         <HiOutlineMinus />
       </button>

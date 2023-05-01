@@ -48,10 +48,27 @@ function CommentComponent({
     <CommentComponent key={reply.id} commentObj={reply} type="reply" />
   ));
 
+  const replySection =
+    user.username === currentUser.username ? (
+      <section className={styles.edit_section}>
+        <CommentModifyButton icon={MdDelete} className={styles.delete}>
+          Delete
+        </CommentModifyButton>
+        <CommentModifyButton icon={TiPencil} className={styles.edit}>
+          Edit
+        </CommentModifyButton>
+      </section>
+    ) : (
+      <CommentModifyButton icon={FaReply} className={styles.reply}>
+        Reply
+      </CommentModifyButton>
+    );
+
   const commentElement = (
     <div id={type === "comment" ? styles.comment : styles.reply}>
-      <div>
+      <div className={styles.comment_aside}>
         <ScoreCounter scoreProp={score} username={user.username} />
+        <div className={styles.aside_reply}>{replySection}</div>
       </div>
       <div className={styles.comment_body}>
         <header className={styles.comment_header}>
@@ -59,20 +76,7 @@ function CommentComponent({
             <img src="" alt="User profile" ref={imageRef} />
             <h2>{user.username}</h2>
           </section>
-          {user.username === currentUser.username ? (
-            <section className={styles.edit_section}>
-              <CommentModifyButton icon={MdDelete} className={styles.delete}>
-                Delete
-              </CommentModifyButton>
-              <CommentModifyButton icon={TiPencil} className={styles.edit}>
-                Edit
-              </CommentModifyButton>
-            </section>
-          ) : (
-            <CommentModifyButton icon={FaReply} className={styles.reply}>
-              Reply
-            </CommentModifyButton>
-          )}
+          <div className={styles.header_reply}>{replySection}</div>
         </header>
         <p>{content}</p>
       </div>
