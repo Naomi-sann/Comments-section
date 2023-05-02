@@ -7,10 +7,12 @@ import { MdDelete } from "react-icons/md";
 import { TiPencil } from "react-icons/ti";
 import { useAppSelector } from "../../features/hooks";
 import { IconType } from "react-icons/lib";
+import { motion, useInView } from "framer-motion";
 
 interface CommentProps {
   commentObj: Comment | CommentReply;
   type?: "reply" | "comment";
+  index: number;
 }
 
 function CommentModifyButton(props: {
@@ -29,8 +31,12 @@ function CommentModifyButton(props: {
 function CommentComponent({
   commentObj: { content, user, score, replies },
   type = "comment",
+  index,
 }: CommentProps) {
   const currentUser = useAppSelector((state) => state.datas.currentUser);
+
+  const commentRef = useRef(null);
+  const isInView = useInView(commentRef);
 
   const imageRef = useRef<HTMLImageElement | null>(null);
 
@@ -45,7 +51,12 @@ function CommentComponent({
   }, []);
 
   const replyElements = replies?.map((reply: CommentReply) => (
-    <CommentComponent key={reply.id} commentObj={reply} type="reply" />
+    <CommentComponent
+      key={reply.id}
+      commentObj={reply}
+      type="reply"
+      index={index}
+    />
   ));
 
   const replySection =
@@ -65,7 +76,14 @@ function CommentComponent({
     );
 
   const commentElement = (
-    <div id={type === "comment" ? styles.comment : styles.reply}>
+    <motion.div
+      initial={{ y: 20 }}
+      animate={isInView && { y: 0, opacity: 1 }}
+      transition={{ type: "tween", delay: 0.2 * index }}
+      id={type === "comment" ? styles.comment : styles.reply}
+      className="comment-box"
+      ref={commentRef}
+    >
       <div className={styles.comment_aside}>
         <ScoreCounter scoreProp={score} username={user.username} />
         <div className={styles.aside_reply}>{replySection}</div>
@@ -80,7 +98,7 @@ function CommentComponent({
         </header>
         <p>{content}</p>
       </div>
-    </div>
+    </motion.div>
   );
 
   const renderComment = () => {

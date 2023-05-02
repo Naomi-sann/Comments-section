@@ -87,8 +87,6 @@ const ScoreCounter = ({
     getInitialState(scoreProp)
   );
 
-  console.log(score);
-
   return (
     <div className={styles.score_counter}>
       <button

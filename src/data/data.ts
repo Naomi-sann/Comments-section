@@ -55,7 +55,7 @@ const datas: Datas = {
     {
       id: 2,
       content:
-        "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks! wadcwacdwacdawdcaw dcwadcwacdwadcwadc awdcwadcawcdawdcawdcwadcawc dawdawdcdddw adwcwadcawdcwa awdcawwadcwadwadcawda awdcawcdawcdwacdwacdawcdawcwacdawcdawygdcyawcdbyawcyuawcgdyu gawydgcyuawgdcbyawdgcyawgbcdyuawbgydugawbydgyawbgcdygawydgyawdcgnwaycdugyawgcdyagwdcyawngdy aydwcnwaygdnyuawgndygycwagdawawcddcawcdawcdawcdawcdawcdawcdawcdwa wadcawcdwacawdcwa awdcawcdwa awdcwadcawdc awdcawdcwacd wadcawdcwa",
+        "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
       createdAt: "2 weeks ago",
       score: 5,
       user: {
@@ -108,6 +108,21 @@ const datas: Datas = {
         image: {
           png: "./images/avatars/image-juliusomo.png",
           webp: "./images/avatars/image-juliusomo.webp",
+        },
+        username: "juliusomo",
+      },
+      replies: [],
+    },
+    {
+      id: 6,
+      content:
+        "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+      createdAt: "3 month ago",
+      score: 2,
+      user: {
+        image: {
+          png: "./images/avatars/image-ramsesmiron.png",
+          webp: "./images/avatars/image-ramsesmiron.webp",
         },
         username: "juliusomo",
       },

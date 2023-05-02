@@ -1,5 +1,5 @@
 const AddComment = () => {
-  return <></>;
+  return <section className="comment-box"></section>;
 };
 
 export default AddComment;

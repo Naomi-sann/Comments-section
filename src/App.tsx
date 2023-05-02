@@ -1,17 +1,23 @@
 import "./App.css";
 import type { Comment } from "./data/data";
 import CommentComponent from "./components/Comment/Comment";
+import AddComment from "./components/AddComment/AddComment";
 import useFetchComments from "./hooks/useComments";
 
 function MainContainer(): JSX.Element {
   const comments: Comment[] = useFetchComments();
 
   const renderComments = () =>
-    comments.map((comment: Comment) => (
-      <CommentComponent key={comment.id} commentObj={comment} />
+    comments.map((comment: Comment,index) => (
+      <CommentComponent key={comment.id} commentObj={comment} index={index} />
     )) ?? <></>;
 
-  return <div id="container">{renderComments()}</div>;
+  return (
+    <div id="container">
+      {renderComments()}
+      <AddComment />
+    </div>
+  );
 }
 
 function App() {
