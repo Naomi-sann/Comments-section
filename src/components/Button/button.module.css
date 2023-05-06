@@ -1,0 +1,16 @@
+#button {
+  transition: opacity 200ms;
+  height: 40px;
+  padding: 0 25px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 7.5px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  background-color: var(--purple);
+}
+
+#button:hover {
+  opacity: 0.75;
+}

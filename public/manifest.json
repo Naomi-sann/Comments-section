@@ -1,0 +1,11 @@
+{
+  "short_name": "Comments",
+  "name": "Comments section",
+  "id": "/",
+  "start_url": "/",
+  "background_color": "#5358b6",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#5358b6",
+  "description": "Comments section app made with React, Typescript and motion frame library"
+}

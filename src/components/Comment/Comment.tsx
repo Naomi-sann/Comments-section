@@ -7,7 +7,8 @@ import { MdDelete } from "react-icons/md";
 import { TiPencil } from "react-icons/ti";
 import { useAppSelector } from "../../features/hooks";
 import { IconType } from "react-icons/lib";
-import { motion, useInView } from "framer-motion";
+import { useInView, LazyMotion, domAnimation, m } from "framer-motion";
+import { changeImage } from "../../utils/utils";
 
 interface CommentProps {
   commentObj: Comment | CommentReply;
@@ -29,7 +30,7 @@ function CommentModifyButton(props: {
 }
 
 function CommentComponent({
-  commentObj: { content, user, score, replies },
+  commentObj: { content, createdAt, user, score, replies },
   type = "comment",
   index,
 }: CommentProps) {
@@ -40,14 +41,8 @@ function CommentComponent({
 
   const imageRef = useRef<HTMLImageElement | null>(null);
 
-  async function changeImage(src: string) {
-    const image = await import(`${src}`);
-
-    if (imageRef.current) imageRef.current.src = image.default;
-  }
-
   useEffect(() => {
-    changeImage(`${user.image.png}`);
+    changeImage(imageRef, `${user.image.png}`);
   }, []);
 
   const replyElements = replies?.map((reply: CommentReply) => (
@@ -59,46 +54,51 @@ function CommentComponent({
     />
   ));
 
-  const replySection =
-    user.username === currentUser.username ? (
-      <section className={styles.edit_section}>
-        <CommentModifyButton icon={MdDelete} className={styles.delete}>
-          Delete
-        </CommentModifyButton>
-        <CommentModifyButton icon={TiPencil} className={styles.edit}>
-          Edit
-        </CommentModifyButton>
-      </section>
-    ) : (
-      <CommentModifyButton icon={FaReply} className={styles.reply}>
-        Reply
+  const isUser: boolean = user.username === currentUser.username;
+
+  const replySection = isUser ? (
+    <section className={styles.edit_section}>
+      <CommentModifyButton icon={MdDelete} className={styles.delete}>
+        Delete
       </CommentModifyButton>
-    );
+      <CommentModifyButton icon={TiPencil} className={styles.edit}>
+        Edit
+      </CommentModifyButton>
+    </section>
+  ) : (
+    <CommentModifyButton icon={FaReply} className={styles.reply}>
+      Reply
+    </CommentModifyButton>
+  );
 
   const commentElement = (
-    <motion.div
-      initial={{ y: 20 }}
-      animate={isInView && { y: 0, opacity: 1 }}
-      transition={{ type: "tween", delay: 0.2 * index }}
-      id={type === "comment" ? styles.comment : styles.reply}
-      className="comment-box"
-      ref={commentRef}
-    >
-      <div className={styles.comment_aside}>
-        <ScoreCounter scoreProp={score} username={user.username} />
-        <div className={styles.aside_reply}>{replySection}</div>
-      </div>
-      <div className={styles.comment_body}>
-        <header className={styles.comment_header}>
-          <section className={styles.profile}>
-            <img src="" alt="User profile" ref={imageRef} />
-            <h2>{user.username}</h2>
-          </section>
-          <div className={styles.header_reply}>{replySection}</div>
-        </header>
-        <p>{content}</p>
-      </div>
-    </motion.div>
+    <LazyMotion features={domAnimation}>
+      <m.div
+        initial={{ y: 20 }}
+        animate={isInView && { y: 0, opacity: 1 }}
+        transition={{ type: "tween", delay: 0.2 * index }}
+        id={type === "comment" ? styles.comment : styles.reply}
+        className="comment-box"
+        ref={commentRef}
+      >
+        <div className={styles.comment_aside}>
+          <ScoreCounter scoreProp={score} username={user.username} />
+          <div className={styles.aside_reply}>{replySection}</div>
+        </div>
+        <div className={styles.comment_body}>
+          <header className={styles.comment_header}>
+            <section className={styles.profile}>
+              <img src="" alt="User profile" ref={imageRef} />
+              <h2>{user.username}</h2>
+              {isUser && <mark className={styles.you_badge}>you</mark>}
+              <span className={styles.created_at}>{createdAt}</span>
+            </section>
+            <div className={styles.header_reply}>{replySection}</div>
+          </header>
+          <p>{content}</p>
+        </div>
+      </m.div>
+    </LazyMotion>
   );
 
   const renderComment = () => {

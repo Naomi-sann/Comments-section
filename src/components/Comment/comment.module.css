@@ -4,17 +4,22 @@
 
 .comments_container #comment {
   width: 100%;
+  margin: 0 0 10px;
 }
 
 #comment,
 #reply {
   color: var(--gray);
-  margin: 10px 0;
   opacity: 0;
 }
 
+#comment,
+.comments_container {
+  margin: 10px 0;
+}
+
 #reply {
-  width: clamp(220px, 95%, 555px);
+  margin: 10px 0 0;
 }
 
 .replies_section {
@@ -22,6 +27,9 @@
   flex-direction: column;
   align-items: flex-end;
   position: relative;
+}
+.replies_section > * {
+  width: clamp(220px, 95%, 555px);
 }
 .replies_section::before {
   content: "";
@@ -55,6 +63,15 @@
   font-weight: 600;
 }
 
+.you_badge {
+  padding: 1px 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 2px;
+  background-color: var(--purple);
+}
+
 .aside_reply {
   display: none;
 }
@@ -66,7 +83,7 @@
 
 .comment_modify_button {
   display: flex;
-  transition: background-color 150ms;
+  transition: background-color 100ms;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
@@ -112,20 +129,20 @@
 }
 
 .score_counter {
-  width: 45px;
+  width: 42.5px;
   height: 110px;
   background: var(--light-gray);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   padding: 4px;
 }
 
 .score_counter button {
   transition: background 100ms;
-  height: 35%;
+  height: 33%;
   width: 100%;
   display: flex;
   justify-content: center;

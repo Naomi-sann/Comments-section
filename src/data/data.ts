@@ -31,8 +31,8 @@ export interface Datas {
 const datas: Datas = {
   currentUser: {
     image: {
-      png: "./images/avatars/image-juliusomo.png",
-      webp: "./images/avatars/image-juliusomo.webp",
+      png: "images/avatars/image-juliusomo.png",
+      webp: "images/avatars/image-juliusomo.webp",
     },
     username: "juliusomo",
   },
@@ -45,8 +45,8 @@ const datas: Datas = {
       score: 12,
       user: {
         image: {
-          png: "./images/avatars/image-amyrobson.png",
-          webp: "./images/avatars/image-amyrobson.webp",
+          png: "images/avatars/image-amyrobson.png",
+          webp: "images/avatars/image-amyrobson.webp",
         },
         username: "amyrobson",
       },
@@ -60,8 +60,8 @@ const datas: Datas = {
       score: 5,
       user: {
         image: {
-          png: "./images/avatars/image-maxblagun.png",
-          webp: "./images/avatars/image-maxblagun.webp",
+          png: "images/avatars/image-maxblagun.png",
+          webp: "images/avatars/image-maxblagun.webp",
         },
         username: "maxblagun",
       },
@@ -75,8 +75,8 @@ const datas: Datas = {
           replyingTo: "maxblagun",
           user: {
             image: {
-              png: "./images/avatars/image-ramsesmiron.png",
-              webp: "./images/avatars/image-ramsesmiron.webp",
+              png: "images/avatars/image-ramsesmiron.png",
+              webp: "image/avatars/image-ramsesmiron.webp",
             },
             username: "ramsesmiron",
           },
@@ -90,8 +90,8 @@ const datas: Datas = {
           replyingTo: "ramsesmiron",
           user: {
             image: {
-              png: "./images/avatars/image-juliusomo.png",
-              webp: "./images/avatars/image-juliusomo.webp",
+              png: "images/avatars/image-juliusomo.png",
+              webp: "images/avatars/image-juliusomo.webp",
             },
             username: "juliusomo",
           },
@@ -106,8 +106,8 @@ const datas: Datas = {
       score: 2,
       user: {
         image: {
-          png: "./images/avatars/image-juliusomo.png",
-          webp: "./images/avatars/image-juliusomo.webp",
+          png: "images/avatars/image-juliusomo.png",
+          webp: "images/avatars/image-juliusomo.webp",
         },
         username: "juliusomo",
       },
@@ -121,8 +121,8 @@ const datas: Datas = {
       score: 2,
       user: {
         image: {
-          png: "./images/avatars/image-ramsesmiron.png",
-          webp: "./images/avatars/image-ramsesmiron.webp",
+          png: "images/avatars/image-ramsesmiron.png",
+          webp: "images/avatars/image-ramsesmiron.webp",
         },
         username: "juliusomo",
       },

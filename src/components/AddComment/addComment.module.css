@@ -1,0 +1,57 @@
+#add_comment {
+  position: sticky;
+  bottom: 15px;
+}
+
+#profile_image {
+  width: 45px;
+  height: 45px;
+}
+
+#comment_text {
+  width: 70%;
+  min-height: 10ch;
+  height: fit-content;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: var(--main-font);
+  font-weight: 500;
+  color: var(--gray);
+  resize: none;
+}
+
+#comment_text:empty::after {
+  content: attr(placeholder);
+  pointer-events: none;
+}
+
+#comment_text:focus {
+  border-color: var(--gray);
+}
+
+@media (max-width: 600px) {
+  #add_comment {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "textarea textarea"
+      "image button";
+    padding: 15px 12.5px;
+  }
+
+  #comment_text {
+    grid-area: textarea;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  #profile_image {
+    grid-area: image;
+    width: 40px;
+    height: 40px;
+  }
+  .send_comment {
+    grid-area: button;
+    max-width: 100px;
+  }
+}
