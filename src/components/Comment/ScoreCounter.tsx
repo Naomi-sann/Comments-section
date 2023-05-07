@@ -100,6 +100,7 @@ const ScoreCounter = ({
           background:
             score.scoreType === "increase" ? "rgba(150,150,150,.2)" : "",
         }}
+        name="add-score"
       >
         <HiPlus />
       </button>
@@ -115,6 +116,7 @@ const ScoreCounter = ({
           background:
             score.scoreType === "decrease" ? "rgba(150,150,150,.2)" : "",
         }}
+        name="decrease-score"
       >
         <HiOutlineMinus />
       </button>

@@ -4,7 +4,7 @@ import type { Comment } from "../data/data";
 import { setComment } from "../features/CommentsSlice";
 
 function useComments() {
-  const comments: Comment[] = useAppSelector((state) => state.datas.comments);
+  const comments: Comment[] = useAppSelector((state) => state.comments);
   const dispatch = useAppDispatch();
 
   const dataKey: string = "commentDatas";

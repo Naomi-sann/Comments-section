@@ -20,9 +20,13 @@ function CommentModifyButton(props: {
   icon: IconType;
   children: React.ReactNode;
   className?: string;
+  name: string;
 }) {
   return (
-    <button className={`${styles.comment_modify_button} ` + props.className}>
+    <button
+      className={`${styles.comment_modify_button} ` + props.className}
+      name={`modify-${props.name}-button`}
+    >
       <props.icon />
       <span>{props.children}</span>
     </button>
@@ -34,7 +38,7 @@ function CommentComponent({
   type = "comment",
   index,
 }: CommentProps) {
-  const currentUser = useAppSelector((state) => state.datas.currentUser);
+  const currentUser = useAppSelector((state) => state.user);
 
   const commentRef = useRef(null);
   const isInView = useInView(commentRef);
@@ -58,15 +62,19 @@ function CommentComponent({
 
   const replySection = isUser ? (
     <section className={styles.edit_section}>
-      <CommentModifyButton icon={MdDelete} className={styles.delete}>
+      <CommentModifyButton
+        icon={MdDelete}
+        className={styles.delete}
+        name="delete"
+      >
         Delete
       </CommentModifyButton>
-      <CommentModifyButton icon={TiPencil} className={styles.edit}>
+      <CommentModifyButton icon={TiPencil} className={styles.edit} name="edit">
         Edit
       </CommentModifyButton>
     </section>
   ) : (
-    <CommentModifyButton icon={FaReply} className={styles.reply}>
+    <CommentModifyButton icon={FaReply} className={styles.reply} name="reply">
       Reply
     </CommentModifyButton>
   );

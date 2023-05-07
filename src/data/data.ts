@@ -1,4 +1,4 @@
-interface User {
+export interface User {
   image: {
     png: string | null,
     webp: string | null,
@@ -7,7 +7,7 @@ interface User {
 }
 
 interface CommentBody {
-  id: number;
+  id: number | string;
   content: string;
   createdAt: string;
   score: number;
