@@ -1,0 +1,20 @@
+{
+  "short_name": "Comments",
+  "name": "Comments section",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    { "src": "./icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "id": "/",
+  "start_url": "/",
+  "background_color": "#5358b6",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#5358b6",
+  "description": "Comments section app made with React, Typescript and motion frame library"
+}

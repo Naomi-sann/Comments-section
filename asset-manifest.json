@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9c484fc0.css",
+    "main.js": "/static/js/main.4089bbc1.js",
+    "static/js/695.647ab70f.chunk.js": "/static/js/695.647ab70f.chunk.js",
+    "static/js/594.c0bc1516.chunk.js": "/static/js/594.c0bc1516.chunk.js",
+    "static/js/40.9a2815c3.chunk.js": "/static/js/40.9a2815c3.chunk.js",
+    "static/js/1.9824e4c0.chunk.js": "/static/js/1.9824e4c0.chunk.js",
+    "static/js/353.8e8b21fc.chunk.js": "/static/js/353.8e8b21fc.chunk.js",
+    "static/js/70.3c403adb.chunk.js": "/static/js/70.3c403adb.chunk.js",
+    "static/js/754.716dff65.chunk.js": "/static/js/754.716dff65.chunk.js",
+    "static/js/430.b915eaa4.chunk.js": "/static/js/430.b915eaa4.chunk.js",
+    "static/js/36.e1b89bc3.chunk.js": "/static/js/36.e1b89bc3.chunk.js",
+    "static/js/86.b568038d.chunk.js": "/static/js/86.b568038d.chunk.js",
+    "static/js/702.5bdb5267.chunk.js": "/static/js/702.5bdb5267.chunk.js",
+    "static/js/207.d4215cc5.chunk.js": "/static/js/207.d4215cc5.chunk.js",
+    "static/js/371.a468bf6e.chunk.js": "/static/js/371.a468bf6e.chunk.js",
+    "static/js/240.d916a14c.chunk.js": "/static/js/240.d916a14c.chunk.js",
+    "static/js/398.6fa4b5ec.chunk.js": "/static/js/398.6fa4b5ec.chunk.js",
+    "static/media/image-amyrobson.webp": "/static/media/image-amyrobson.974bbf3c9ffb709f30a0.webp",
+    "static/media/image-juliusomo.webp": "/static/media/image-juliusomo.595ca29b9049f4c6ce66.webp",
+    "static/media/image-maxblagun.webp": "/static/media/image-maxblagun.e423f15841d76f3a5361.webp",
+    "static/media/image-ramsesmiron.webp": "/static/media/image-ramsesmiron.62a67681169b8dcdc378.webp",
+    "index.html": "/index.html",
+    "static/media/icon-plus.svg": "/static/media/icon-plus.0037a825a55096577941.svg",
+    "static/media/icon-edit.svg": "/static/media/icon-edit.b0c7f9ebaec367bd3ae2.svg",
+    "static/media/icon-reply.svg": "/static/media/icon-reply.bfb4589d45cd96abd45e.svg",
+    "static/media/icon-minus.svg": "/static/media/icon-minus.4aa6933cb1575b3c54fa.svg",
+    "static/media/icon-delete.svg": "/static/media/icon-delete.86cedbf2e37529f9c8f1.svg",
+    "main.9c484fc0.css.map": "/static/css/main.9c484fc0.css.map",
+    "main.4089bbc1.js.map": "/static/js/main.4089bbc1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c484fc0.css",
+    "static/js/main.4089bbc1.js"
+  ]
+}
