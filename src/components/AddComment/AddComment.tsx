@@ -25,8 +25,6 @@ const AddComment = (props: AddCommentProps): JSX.Element => {
   const handleAddComment = () => {
     const currentTime = new Date().getTime();
 
-    console.log();
-
     const comment: Comment = {
       id: getId(),
       content: textareaRef.current ? textareaRef.current.innerText : "",
@@ -36,6 +34,8 @@ const AddComment = (props: AddCommentProps): JSX.Element => {
       user: profile,
     };
     dispatch(addComment(comment));
+
+    if (textareaRef.current) textareaRef.current.innerText = "";
   };
 
   return (
