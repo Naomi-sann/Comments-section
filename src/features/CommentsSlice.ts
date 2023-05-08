@@ -11,15 +11,13 @@ const commentsSlice = createSlice({
     reducers: {
         addComment(state, action: PayloadAction<Comment>) {
             state.push(action.payload);
-            // console.log(action.payload);
-
         },
         setComment(state, action: PayloadAction<Comment[]>) {
-
-            state = action.payload;
         },
         deleteComment(state, { payload }: PayloadAction<number>) {
-            state = state.filter(c => c.id !== payload);
+            if (state.findIndex(c => c.id === payload) < 0)
+                state.forEach(c => c.replies = c.replies.filter(r => r.id !== payload));
+            else return state.filter(c => c.id !== payload);
         }
     }
 });

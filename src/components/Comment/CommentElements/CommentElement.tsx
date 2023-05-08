@@ -1,14 +1,11 @@
 import { useEffect, useRef } from "react";
-import styles from "./comment.module.css";
+import styles from "../comment.module.css";
 import ScoreCounter from "./ScoreCounter";
+import ModifyButtonSection from "./ModifyButtonSection";
 import { LazyMotion, m, useInView, domAnimation } from "framer-motion";
-import { useAppSelector } from "../../features/hooks";
-import CommentModifyButton from "./CommentModifyButton";
-import { FaReply } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
-import { TiPencil } from "react-icons/ti";
-import { changeImage, getPassedTimeSince } from "../../utils/utils";
-import type { Comment, CommentReply } from "../../data/data";
+import { useAppSelector } from "../../../features/hooks";
+import { changeImage, getPassedTimeSince } from "../../../utils/utils";
+import type { Comment, CommentReply } from "../../../data/data";
 
 interface CommentProps {
   commentObj: Comment | CommentReply;
@@ -17,7 +14,7 @@ interface CommentProps {
 }
 
 function CommentElement({
-  commentObj: { user, createdAt, content, score },
+  commentObj: { user, createdAt, content, score, id },
   index,
   type,
 }: CommentProps) {
@@ -31,25 +28,6 @@ function CommentElement({
   }, []);
 
   const isUser: boolean = user.username === currentUser.username;
-
-  const replySection = isUser ? (
-    <section className={styles.edit_section}>
-      <CommentModifyButton
-        icon={MdDelete}
-        className={styles.delete}
-        name="delete"
-      >
-        Delete
-      </CommentModifyButton>
-      <CommentModifyButton icon={TiPencil} className={styles.edit} name="edit">
-        Edit
-      </CommentModifyButton>
-    </section>
-  ) : (
-    <CommentModifyButton icon={FaReply} className={styles.reply} name="reply">
-      Reply
-    </CommentModifyButton>
-  );
 
   const renderCreateDate = () => {
     if (/[a-zA-Z]/gi.test(createdAt)) return createdAt;
@@ -87,7 +65,9 @@ function CommentElement({
       >
         <div className={styles.comment_aside}>
           <ScoreCounter scoreProp={score} username={user.username} />
-          <div className={styles.aside_reply}>{replySection}</div>
+          <div className={styles.aside_reply}>
+            {<ModifyButtonSection isUser={isUser} commentId={id} />}
+          </div>
         </div>
         <div className={styles.comment_body}>
           <header className={styles.comment_header}>
@@ -97,7 +77,9 @@ function CommentElement({
               {isUser && <mark className={styles.you_badge}>you</mark>}
               <span className={styles.created_at}>{renderCreateDate()}</span>
             </section>
-            <div className={styles.header_reply}>{replySection}</div>
+            <div className={styles.header_reply}>
+              {<ModifyButtonSection isUser={isUser} commentId={id} />}
+            </div>
           </header>
           <p>{content}</p>
         </div>

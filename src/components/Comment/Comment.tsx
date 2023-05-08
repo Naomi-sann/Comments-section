@@ -1,6 +1,6 @@
 import { memo } from "react";
 import styles from "./comment.module.css";
-import CommentElement from "./CommentElement";
+import CommentElement from "./CommentElements/CommentElement";
 import type { Comment, CommentReply } from "../../data/data";
 
 interface CommentProps {
