@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import styles from "./comment.module.css";
+import styles from "../comment.module.css";
 import { HiPlus, HiOutlineMinus } from "react-icons/hi";
 
 const getInitialState = (score: number) => ({

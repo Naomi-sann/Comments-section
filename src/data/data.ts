@@ -7,7 +7,7 @@ export interface User {
 }
 
 interface CommentBody {
-  id: number | string;
+  id: number;
   content: string;
   createdAt: string;
   score: number;

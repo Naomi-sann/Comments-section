@@ -5,10 +5,12 @@
 .comments_container #comment {
   width: 100%;
   margin: 0 0 10px;
+  min-height: 200px;
 }
 
 #comment,
 #reply {
+  min-height: 200px;
   color: var(--gray);
   opacity: 0;
 }
@@ -122,6 +124,7 @@
 }
 
 .comment_body {
+  flex-grow: 1;
   margin-left: 25px;
 }
 .comment_body p {
