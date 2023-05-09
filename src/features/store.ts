@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import commentsSlice from "./CommentsSlice";
+import CommentsSlice from "./CommentsSlice";
 import UserSlice from "./UserSlice";
+import AlertSlice from "./AlertSlice";
 
 const store = configureStore({
     reducer: {
-        comments: commentsSlice,
-        user: UserSlice
+        comments: CommentsSlice,
+        user: UserSlice,
+        alert: AlertSlice
     }
 });
 

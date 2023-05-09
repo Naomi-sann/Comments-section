@@ -1,5 +1,6 @@
 import { useAppDispatch } from "../../../features/hooks";
 import { deleteComment } from "../../../features/CommentsSlice";
+import { showAlert } from "../../../features/AlertSlice";
 import CommentModifyButton from "./CommentModifyButton";
 import { FaReply } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -15,9 +16,16 @@ function ModifyButtonSection({
 }) {
   const dispatch = useAppDispatch();
 
-  const handleReply = () => {};
+  const handleReply = () => {
+    dispatch(
+      showAlert({
+        type: "prompt",
+        title: "reply comment",
+        message: "this is a test message",
+      })
+    );
+  };
   const handleDelete = () => {
-    console.log("delete");
     dispatch(deleteComment(commentId));
   };
   const handleEdit = () => {};

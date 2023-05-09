@@ -23,6 +23,15 @@ const AddComment = (props: AddCommentProps): JSX.Element => {
   });
 
   const handleAddComment = () => {
+    // leave the function if there's no value or empty
+    if (
+      textareaRef.current &&
+      !/^(?!\s*$).+/.test(textareaRef.current.innerText)
+    ) {
+      alert("please enter something");
+      return;
+    }
+
     const currentTime = new Date().getTime();
 
     const comment: Comment = {

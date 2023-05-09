@@ -11,8 +11,11 @@
 
 :root {
   --light-gray: #f5f6fa;
+  --medium-gray: rgb(135, 135, 135);
   --gray: #5d5f6b;
+  --dark-gray: #494949;
   --purple: #5358b6;
+  --tomato-red: rgba(247, 22, 22, 0.852);
   --font: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
