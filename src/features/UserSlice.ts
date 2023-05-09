@@ -3,7 +3,7 @@ import datas from "../data/data";
 
 const initialState = datas.currentUser;
 
-const userSlice = createSlice({
+const UserSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
@@ -13,5 +13,5 @@ const userSlice = createSlice({
     }
 });
 
-export const { setUser } = userSlice.actions;
-export default userSlice.reducer;
+export const { setUser } = UserSlice.actions;
+export default UserSlice.reducer;

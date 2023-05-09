@@ -31,7 +31,7 @@
   position: relative;
 }
 .replies_section > * {
-  width: clamp(220px, 95%, 555px);
+  width: clamp(220px, 95%, 555px) !important;
 }
 .replies_section::before {
   content: "";
@@ -117,7 +117,7 @@
 }
 
 .delete {
-  color: rgba(247, 22, 22, 0.852);
+  color: var(--tomato-red);
 }
 .delete:hover {
   background-color: rgba(247, 22, 22, 0.15);

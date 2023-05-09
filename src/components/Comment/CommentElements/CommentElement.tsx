@@ -59,9 +59,9 @@ function CommentElement({
         initial={{ y: 20 }}
         animate={isInView && { y: 0, opacity: 1 }}
         transition={{ type: "tween", delay: 0.2 * index }}
-        id={type === "comment" ? styles.comment : styles.reply}
-        className="comment-box"
         ref={commentRef}
+        className="comment-box"
+        id={type === "comment" ? styles.comment : styles.reply}
       >
         <div className={styles.comment_aside}>
           <ScoreCounter scoreProp={score} username={user.username} />

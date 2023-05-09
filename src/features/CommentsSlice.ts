@@ -3,24 +3,29 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import datas from '../data/data';
 import type { Comment } from '../data/data';
 
-const initialState: Comment[] = datas.comments;
+interface InitialState {
+    sort: "newest" | "oldest" | "most-score",
+    comments: Comment[]
+}
 
-const commentsSlice = createSlice({
+const initialState: InitialState = { sort: "newest", comments: datas.comments };
+
+const CommentsSlice = createSlice({
     name: "comments",
     initialState,
     reducers: {
         addComment(state, action: PayloadAction<Comment>) {
-            state.push(action.payload);
+            state.comments.unshift(action.payload);
         },
         setComment(state, action: PayloadAction<Comment[]>) {
         },
         deleteComment(state, { payload }: PayloadAction<number>) {
-            if (state.findIndex(c => c.id === payload) < 0)
-                state.forEach(c => c.replies = c.replies.filter(r => r.id !== payload));
-            else return state.filter(c => c.id !== payload);
+            if (state.comments.findIndex(c => c.id === payload) < 0)
+                state.comments.forEach(c => c.replies = c.replies.filter(r => r.id !== payload));
+            else return { ...state, comments: state.comments.filter(c => c.id !== payload) };
         }
     }
 });
 
-export const { addComment, setComment, deleteComment } = commentsSlice.actions
-export default commentsSlice.reducer;
+export const { addComment, setComment, deleteComment } = CommentsSlice.actions
+export default CommentsSlice.reducer;

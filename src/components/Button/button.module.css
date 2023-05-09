@@ -1,4 +1,4 @@
-#button {
+.button {
   transition: opacity 200ms;
   height: 40px;
   padding: 0 25px;
@@ -11,6 +11,6 @@
   background-color: var(--purple);
 }
 
-#button:hover {
+.button:hover {
   opacity: 0.75;
 }
