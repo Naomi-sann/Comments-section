@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Comments-section/static/css/main.9c484fc0.css",
-    "main.js": "/Comments-section/static/js/main.93fe80bb.js",
+    "main.css": "/Comments-section/static/css/main.675aa1a9.css",
+    "main.js": "/Comments-section/static/js/main.5551221f.js",
     "static/js/695.647ab70f.chunk.js": "/Comments-section/static/js/695.647ab70f.chunk.js",
     "static/js/594.c0bc1516.chunk.js": "/Comments-section/static/js/594.c0bc1516.chunk.js",
     "static/js/40.9a2815c3.chunk.js": "/Comments-section/static/js/40.9a2815c3.chunk.js",
@@ -27,11 +27,11 @@
     "static/media/icon-reply.svg": "/Comments-section/static/media/icon-reply.bfb4589d45cd96abd45e.svg",
     "static/media/icon-minus.svg": "/Comments-section/static/media/icon-minus.4aa6933cb1575b3c54fa.svg",
     "static/media/icon-delete.svg": "/Comments-section/static/media/icon-delete.86cedbf2e37529f9c8f1.svg",
-    "main.9c484fc0.css.map": "/Comments-section/static/css/main.9c484fc0.css.map",
-    "main.93fe80bb.js.map": "/Comments-section/static/js/main.93fe80bb.js.map"
+    "main.675aa1a9.css.map": "/Comments-section/static/css/main.675aa1a9.css.map",
+    "main.5551221f.js.map": "/Comments-section/static/js/main.5551221f.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c484fc0.css",
-    "static/js/main.93fe80bb.js"
+    "static/css/main.675aa1a9.css",
+    "static/js/main.5551221f.js"
   ]
 }
