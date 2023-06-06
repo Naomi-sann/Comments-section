@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import store from "./features/store";
+import AlertContextProvider from "./providers/AlertContext/AlertContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <AlertContextProvider>
+        <App />
+      </AlertContextProvider>
     </Provider>
   </React.StrictMode>
 );

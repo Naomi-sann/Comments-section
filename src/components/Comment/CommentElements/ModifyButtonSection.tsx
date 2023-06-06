@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../../../features/hooks";
+import { useAlertContext } from "../../../providers/AlertContext/AlertContext";
 import { deleteComment } from "../../../features/CommentsSlice";
-import { showAlert } from "../../../features/AlertSlice";
 import CommentModifyButton from "./CommentModifyButton";
 import { FaReply } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -14,19 +14,21 @@ function ModifyButtonSection({
   isUser: boolean;
   commentId: number;
 }) {
+  const alertContext = useAlertContext();
   const dispatch = useAppDispatch();
 
-  const handleReply = () => {
-    dispatch(
-      showAlert({
-        type: "prompt",
-        title: "reply comment",
-        message: "this is a test message",
-      })
-    );
-  };
+  const handleReply = () => {};
   const handleDelete = () => {
-    dispatch(deleteComment(commentId));
+    alertContext?.showAlert({
+      type: "prompt",
+      title: "Delete comment",
+      message:
+        "Are you sure you want to delete the comment? this can't be undone.",
+      onAccept() {
+        dispatch(deleteComment(commentId));
+        alertContext?.hideAlert({ response: "accepted" });
+      },
+    });
   };
   const handleEdit = () => {};
 
@@ -36,16 +38,14 @@ function ModifyButtonSection({
         icon={MdDelete}
         className={styles.delete}
         name="delete"
-        onClick={handleDelete}
-      >
+        onClick={handleDelete}>
         Delete
       </CommentModifyButton>
       <CommentModifyButton
         icon={TiPencil}
         className={styles.edit}
         name="edit"
-        onClick={handleEdit}
-      >
+        onClick={handleEdit}>
         Edit
       </CommentModifyButton>
     </section>
@@ -54,8 +54,7 @@ function ModifyButtonSection({
       icon={FaReply}
       className={styles.reply}
       name="reply"
-      onClick={handleReply}
-    >
+      onClick={handleReply}>
       Reply
     </CommentModifyButton>
   );

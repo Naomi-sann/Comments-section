@@ -39,8 +39,13 @@
   align-items: stretch;
 }
 
+.button_container:has(.continue_button) {
+  justify-content: flex-end;
+}
+
 .reject_button,
-.approve_button {
+.approve_button,
+.continue_button {
   width: 47.5%;
   height: 47px;
 }
